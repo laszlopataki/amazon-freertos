@@ -1,0 +1,8 @@
+menu "Trace Recorder"
+    
+config TRACE_RECORDER_ENABLE
+    bool "Enable trace recorder component."
+    default y
+    help
+            This enable Percepio Trace Recorder component named.
+endmenu

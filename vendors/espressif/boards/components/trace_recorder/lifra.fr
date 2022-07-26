@@ -1,0 +1,4 @@
+mapping:TraceRecorder]
+archive: afr_kernel.a
+entries:
+        * (noflash)
