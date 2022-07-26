@@ -211,22 +211,43 @@ if(EXISTS "${AFR_3RDPARTY_DIR}/tracealyzer_recorder")
     afr_3rdparty_module(tracealyzer_recorder)
     target_sources(
         3rdparty::tracealyzer_recorder INTERFACE
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/streamports/RingBuffer/trcStreamPort.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcAssert.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcCounter.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcDiagnostics.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcEntryTable.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcError.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcEvent.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcEventBuffer.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcExtension.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcHardwarePort.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcHeap.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcInternalEventBuffer.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcInterval.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcISR.c"
         "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcKernelPort.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcMultiCoreEventBuffer.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcObject.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcPrint.c"
         "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcSnapshotRecorder.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcStackMonitor.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcStateMachine.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcStaticBuffer.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcStreamingRecorder.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcString.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcTask.c"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/trcTimestamp.c"
     )
     target_include_directories(
         3rdparty::tracealyzer_recorder INTERFACE
-        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/Include"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/include"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/config"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/streamports/RingBuffer/include"
+        "${AFR_3RDPARTY_DIR}/tracealyzer_recorder/streamports/RingBuffer/config"
+        "${CMAKE_SOURCE_DIR}/freertos/vendors/espressif/esp-idf/components/driver/include"
+        "${CMAKE_SOURCE_DIR}/freertos/vendors/espressif/esp-idf/components/soc/soc/include"
+        "${CMAKE_SOURCE_DIR}/freertos/vendors/espressif/esp-idf/components/app_trace/include"
     )
-
-    # WinPcap - pcap port for windows
-    afr_3rdparty_module(win_pcap)
-    target_include_directories(3rdparty::win_pcap INTERFACE "${AFR_3RDPARTY_DIR}/win_pcap")
-    if(MSVC)
-        target_link_libraries(3rdparty::win_pcap INTERFACE "${AFR_3RDPARTY_DIR}/win_pcap/wpcap.lib")
-    elseif(MINGW)
-        target_link_libraries(3rdparty::win_pcap INTERFACE "${AFR_3RDPARTY_DIR}/win_pcap/libwpcap.a")
-    endif()
 endif()
 
 # tinycrypt standard header
