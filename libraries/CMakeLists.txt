@@ -36,6 +36,7 @@ afr_module_dependencies(
         AFR::kernel::mcu_port
     PUBLIC
         AFR::compiler::mcu_port
+        3rdparty::tracealyzer_recorder
 )
 
 # Add FreeRTOS and mcu portable layer include path to kernel's public interface.
